@@ -21,14 +21,14 @@ def data():
         query = """
             SELECT 
                 jsonb_build_object(
-                    'type', 'FeatureCollection',
-                    'features', jsonb_agg(feature)
+                    "type", "FeatureCollection",
+                    "features", jsonb_agg(feature)
                 ) AS geojson
             FROM (
                 SELECT 
-                    'Feature'::text AS type,
+                    "Feature"::text AS type,
                     ST_AsGeoJSON(shape)::jsonb AS geometry,
-                    '{}'::jsonb AS properties
+                    "{}"::jsonb AS properties
                 FROM 
                     fc
             ) AS feature;
