@@ -27,7 +27,7 @@ def data():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(geom)::jsonb AS geometry,
+                    ST_AsGeoJSON(shape)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
                     fc
