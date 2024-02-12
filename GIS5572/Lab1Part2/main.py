@@ -1,4 +1,5 @@
 import os
+import json
 import psycopg2
 from flask import Flask
 
@@ -37,9 +38,11 @@ def data():
         cur.execute(query) 
         data = cur.fetchall()
         
-    conn.close() 
+    conn.close()
+
+    response_data = json.dumps(data)
      
-    return str(data)
+    return response_data
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
