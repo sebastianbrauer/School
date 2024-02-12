@@ -30,7 +30,7 @@ def data():
                     ST_AsGeoJSON(geom)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
-                    your_table_name
+                    fc
             ) AS feature;
 
 """
