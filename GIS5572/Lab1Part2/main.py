@@ -26,7 +26,7 @@ def data():
                 ) AS geojson
             FROM (
                 SELECT 
-                    "Feature"::text AS type,
+                    "objectid"::text AS type,
                     ST_AsGeoJSON(shape)::jsonb AS geometry,
                     "{}"::jsonb AS properties
                 FROM 
