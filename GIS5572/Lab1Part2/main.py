@@ -36,7 +36,7 @@ def data():
 
 """
         cur.execute(query) 
-        data = cur.fetchall()
+        data = cur.fetchone()[0]
         
     conn.close()
 
