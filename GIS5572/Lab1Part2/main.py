@@ -1,7 +1,5 @@
 import os
 import psycopg2
-from flask import Flaskfrom dotenv import load_dotenv 
-load_dotenv()
 
 app = Flask(__name__)
 
@@ -35,7 +33,7 @@ def data():
             ) AS feature;
 
 """
-        cur.execute("SELECT ST_AsGeoJSON(my_table.*)::json FROM my_table;") 
+        cur.execute(query) 
         data = cur.fetchall()
         
     conn.close() 
