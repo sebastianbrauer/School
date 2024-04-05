@@ -69,8 +69,10 @@ def elevation_assessment():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(shape, kriging_residual)::jsonb AS geometry,
-                    '{}'::jsonb AS properties
+                    ST_AsGeoJSON(shape)::jsonb AS geometry,
+		    jsonb_build_object(
+			'kriging_residual', kriging_residual
+ 		    ) AS properties
                 FROM 
                     kriging_points_elevation_assessment
             ) AS feature
@@ -108,8 +110,10 @@ def temperature():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(shape, grid_code)::jsonb AS geometry,
-                    '{}'::jsonb AS properties
+                    ST_AsGeoJSON(shape)::jsonb AS geometry,
+		        jsonb_build_object(
+			'grid_code', grid_code
+                    ) AS properties
                 FROM 
                     kriging_points_temperature
             ) AS feature
