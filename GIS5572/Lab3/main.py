@@ -28,11 +28,12 @@ def elevation():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(kriging_points_elevation.*)::jsonb AS geometry,
+                    ST_AsGeoJSON(shape, grid_code)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
                     kriging_points_elevation
-            ) AS feature;
+            ) AS feature
+	    LIMIT 10;	
 
 """
         cur.execute(query) 
@@ -66,11 +67,12 @@ def elevation_assessment():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(kriging_points_elevation_assessment.*)::jsonb AS geometry,
+                    ST_AsGeoJSON(shape, kriging_residual)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
                     kriging_points_elevation_assessment
-            ) AS feature;
+            ) AS feature
+	    LIMIT 10;
 
 """
         cur.execute(query) 
@@ -104,11 +106,12 @@ def temperature():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(kriging_points_temperature.*)::jsonb AS geometry,
+                    ST_AsGeoJSON(shape, grid_code)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
                     kriging_points_temperature
-            ) AS feature;
+            ) AS feature
+	    LIMIT 10;
 
 """
         cur.execute(query) 
@@ -142,11 +145,12 @@ def temperature_assessment():
             FROM (
                 SELECT 
                     'Feature'::text AS type,
-                    ST_AsGeoJSON(kriging_points_temperature_assessment.*)::jsonb AS geometry,
+                    ST_AsGeoJSON(shape, kriging_residual)::jsonb AS geometry,
                     '{}'::jsonb AS properties
                 FROM 
                     kriging_points_temperature_assessment
-            ) AS feature;
+            ) AS feature
+	    LIMIT 10;
 
 """
         cur.execute(query) 
