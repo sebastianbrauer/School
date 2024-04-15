@@ -32,8 +32,8 @@ def elevation():
 			jsonb_build_object(
 			'time', time,
 			'trip_id', trip_id,
-			'saturday_Delay', saturday_Delay,
-			'saturday_Status', saturday_Status
+			'delay_saturday', delay_saturday,
+			'saturday_status', saturday_status
                     ) AS properties
                 FROM 
                     bus_delay_20240323
