@@ -31,8 +31,8 @@ def elevation():
                     ST_AsGeoJSON(shape)::jsonb AS geometry,
 			jsonb_build_object(
 			'time', time,
-			'trip_id', trip_id
-			'saturday_Delay', saturday_Delay
+			'trip_id', trip_id,
+			'saturday_Delay', saturday_Delay,
 			'saturday_Status', saturday_Status
                     ) AS properties
                 FROM 
