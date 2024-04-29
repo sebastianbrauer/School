@@ -4,3 +4,5 @@ This repository contains work from my various classes from both my undergraduate
 
 ## GIS 5571 - Spatial Data Science Applied with ArcGIS I
 ## GIS 5572 - Spatial Data Science Applied with ArcGIS II
+## GIS 5577 - Spatial Database Design and Administration 
+## PA 5234 - Urban Transportation Planning and Policy
